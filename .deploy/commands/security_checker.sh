@@ -7,7 +7,7 @@ if [[ $CIRCLECI == true ]]
 then
     composer run security-checker
 else
-    docker exec laravel-api composer run security-checker
+    docker exec wink-blog-gcp composer run security-checker
 fi
 
 RESULT=$?

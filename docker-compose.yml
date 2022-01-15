@@ -1,45 +1,45 @@
 version : "3"
 services:
-  laravel-api:
+  wink-blog-gcp:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: laravel-api
+    container_name: wink-blog-gcp
     depends_on:
-      - laravel-pg
+      - wink-blog-gcp-pg
     volumes:
       - .:/var/www/html
     restart: always
     environment:
-      APP_NAME: 'F+L Laravel Boilerplate'
-      APP_ENV: 'local'
-      APP_DEBUG: 'true'
+      APP_NAME: 'wink-blog-gcp'
+#      APP_ENV: 'local'
+#      APP_DEBUG: 'true'
       APP_URL: 'http://210.101.1.1'
       DB_CONNECTION: 'pgsql'
     networks:
-      laravel-api-network:
+      wink-blog-gcp-network:
         ipv4_address: 210.101.1.1
 
-  laravel-pg:
+  wink-blog-gcp-pg:
     image: postgres:latest
     restart: always
     environment:
       POSTGRES_PASSWORD: docker
-      POSTGRES_DB: test_db
-    container_name: laravel-pg
+      POSTGRES_DB: wink_blog_gcp
+    container_name: wink-blog-gcp-pg
     volumes:
-      - laravel-pg-disk:/var/lib/postgres
+      - wink-blog-gcp-pg-disk:/var/lib/postgres
     networks:
-      laravel-api-network:
+      wink-blog-gcp-network:
         ipv4_address: 210.101.1.2
 
 # On-disk storage of DB data, when containers are stopped/removed
 volumes:
-  laravel-pg-disk: {}
+  wink-blog-gcp-pg-disk: {}
 
 # Local network for services running using this docker-compose config
 networks:
-  laravel-api-network:
+  wink-blog-gcp-network:
     ipam:
       driver: default
       config:

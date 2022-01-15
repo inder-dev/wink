@@ -9,7 +9,7 @@ if [[ $CIRCLECI == true ]]
 then
    composer run phpunit
 else
-    docker exec laravel-api composer run phpunit
+    docker exec wink-blog-gcp composer run phpunit
 fi
 RESULT=$?
 [[ $RESULT -eq 0 ]] &&

@@ -7,7 +7,7 @@ if [[ $CIRCLECI == true ]]
 then
     composer run phpmd
 else
-    docker exec laravel-api composer run phpmd
+    docker exec wink-blog-gcp composer run phpmd
 fi
 
 RESULT=$?

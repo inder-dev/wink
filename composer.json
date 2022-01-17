@@ -51,6 +51,19 @@
         ]
     },
     "scripts": {
+        "tests": [
+            "@pre-commit",
+            "@pre-push"
+        ],
+        "pre-commit": [
+            "@composer run parallel-lint",
+            "@composer run phpcs",
+            "@composer run phpmd",
+            "@composer run security-checker"
+        ],
+        "pre-push": [
+            "@composer run phpunit"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -87,6 +100,7 @@
     "extra": {
         "laravel": {
             "dont-discover": [
+                "barryvdh/laravel-ide-helper",
                 "laravel/telescope"
             ]
         },
@@ -98,12 +112,10 @@
                 ]
             },
             "pre-commit": [
-                "chmod +x .deploy/pre_commit.sh",
-                ".deploy/pre_commit.sh"
+                "docker-compose exec -T wink-blog-gcp composer run pre-commit"
             ],
             "pre-push": [
-                "chmod +x .deploy/pre_push.sh",
-                ".deploy/pre_push.sh"
+                "docker-compose exec -T wink-blog-gcp composer run pre-push"
             ]
         }
     },

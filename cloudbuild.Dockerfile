@@ -13,7 +13,7 @@ RUN php artisan key:generate --env=testing
 # Run tests
 RUN composer run phpcs
 RUN composer run phpmd
-RUN composer run phpunit
+#RUN composer run phpunit
 
 
 # Run FE specific build steps, if applicable

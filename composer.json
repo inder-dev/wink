@@ -75,7 +75,7 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "php artisan key:generate",
             "php artisan key:generate --env=testing",
-            "php artisan migrate"
+            "@composer run phpunit"
         ],
         "post-install-cmd": [
             "[ -f vendor/bin/cghooks ] && vendor/bin/cghooks update || echo 'cghooks not found'"

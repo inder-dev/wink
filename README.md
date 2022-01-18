@@ -1,6 +1,6 @@
 ## Laravel boilerplate repository
 
-This repository is a "template" repository, and is intended to be used to create a new repo.
+This repository is a "template" repository, and is intended to be used to create a new repository.
 
 It contains the basic packages that are required in all projects (almost all), and can be changed as per the requirements of the project.
 

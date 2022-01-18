@@ -71,7 +71,6 @@
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi",
             "[ -f vendor/bin/cghooks ] && vendor/bin/cghooks update || echo 'cghooks not found'",
-            "[ $COMPOSER_DEV_MODE -eq 0 ] || composer run laravel-ide-helper",
             "chmod -R 0777 storage bootstrap",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "php artisan key:generate",

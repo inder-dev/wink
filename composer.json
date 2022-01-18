@@ -79,8 +79,7 @@
             "php artisan migrate"
         ],
         "post-install-cmd": [
-            "[ -f vendor/bin/cghooks ] && vendor/bin/cghooks update || echo 'cghooks not found'",
-            "[ $COMPOSER_DEV_MODE -eq 0 ] || composer run laravel-ide-helper"
+            "[ -f vendor/bin/cghooks ] && vendor/bin/cghooks update || echo 'cghooks not found'"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

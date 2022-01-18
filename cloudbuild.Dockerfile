@@ -10,7 +10,7 @@ RUN composer install -n --prefer-dist
 RUN chmod -R 0777 storage bootstrap
 RUN php artisan key:generate --env=testing
 
-# Run tests
+# Run testing
 RUN composer run phpcs
 RUN composer run phpmd
 #RUN composer run phpunit
